@@ -91,7 +91,7 @@ ZSH_THEME=""
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting tmux)
 
-# ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
