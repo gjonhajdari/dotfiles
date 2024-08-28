@@ -141,7 +141,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 alias bup="brew update && brew upgrade --greedy"
 alias bcl="brew cleanup --prune=all"
 alias python="python3"
-alias config='git --git-dir=/Users/gjonhajdari/.dotfiles --work-tree=/Users/gjonhajdari'
+alias dotfiles='git --git-dir=/Users/gjonhajdari/.dotfiles --work-tree=/Users/gjonhajdari'
 
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
