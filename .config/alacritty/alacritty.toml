@@ -9,6 +9,7 @@ TERM = "xterm-256color"
 padding.x = 15
 padding.y = 15
 dimensions = { columns = 150, lines = 40}
+position = { x = 340, y = 320 }
 
 decorations = "Buttonless"
 
