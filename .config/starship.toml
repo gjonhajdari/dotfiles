@@ -2,7 +2,7 @@
 
 add_newline = false
 
-format = """$directory $git_branch$fill$cmd_duration$time
+format = """$username $directory $git_branch$fill$cmd_duration$time
 $character
 """
 
