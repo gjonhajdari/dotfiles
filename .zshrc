@@ -1,5 +1,5 @@
-# Start a tmux session when opening the terminal
-# if [ "$TMUX" = "" ]; then tmux; fi
+# Draw cat when opening terminal
+cat ~/cat.txt | lolcat
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
