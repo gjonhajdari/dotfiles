@@ -8,8 +8,8 @@ TERM = "xterm-256color"
 [window]
 padding.x = 15
 padding.y = 15
-dimensions = { columns = 150, lines = 40}
-position = { x = 340, y = 320 }
+dimensions = { columns = 170, lines = 45}
+position = { x = 250, y = 290 }
 
 decorations = "Buttonless"
 
@@ -20,7 +20,7 @@ option_as_alt = "Both"
 
 [font]
 normal.family = "JetBrainsMono Nerd Font Mono"
-size = 16
+size = 15
 
 [cursor]
 style = { shape = "Beam", blinking = "Always" }
