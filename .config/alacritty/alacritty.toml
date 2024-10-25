@@ -8,8 +8,8 @@ TERM = "xterm-256color"
 [window]
 padding.x = 15
 padding.y = 15
-dimensions = { columns = 170, lines = 45}
-position = { x = 250, y = 290 }
+dimensions = { columns = 180, lines = 50}
+position = { x = 150, y = 180 }
 
 decorations = "Buttonless"
 
