@@ -161,4 +161,22 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Starship prompt
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '%b '
+
+setopt PROMPT_SUBST
+PROMPT='%F{magenta}chon%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f%F{yellow}❱%f '
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Function to automatically set up a .nvmrc file
+set_nvmrc() {
+  echo $(nvm current) > .nvmrc
+  echo "Created .nvmrc with Node version $(nvm current)"
+}
