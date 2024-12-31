@@ -1,0 +1,35 @@
+theme = "Poimandres"
+clipboard-trim-trailing-spaces = true
+macos-option-as-alt = true
+confirm-close-surface = false
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+quick-terminal-animation-duration = 0.15
+cursor-style = bar
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+
+# Icon
+macos-icon = custom-style
+macos-icon-frame = chrome 
+macos-icon-ghost-color = 0f6627
+macos-icon-screen-color = 03fcca 
+
+# Font
+font-family = "JetBrainsMono Nerd Font"
+font-size = 15.5
+# font-variation = wght = 700
+font-thicken = true
+font-feature = -liga
+
+# Background
+background-opacity = 0.9
+background-blur-radius = 20
+
+# Window
+window-padding-x = 15
+window-padding-y = 15,0
+macos-titlebar-style = hidden
+window-width = 170
+window-height = 48
+window-save-state = always
+# window-colorspace = display-p3
