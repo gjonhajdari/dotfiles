@@ -1,3 +1,3 @@
 # chon dotfiles
 
-Personal configuration for alacritty, zsh, and neovim
+Personal configuration for ~~alacritty~~ ghostty, zsh, and neovim
