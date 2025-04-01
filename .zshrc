@@ -17,6 +17,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=${PATH}:/usr/local/mysql/bin
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
+# Posrgres
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -139,6 +144,9 @@ alias bup="brew update && brew upgrade --greedy"
 alias bcl="brew cleanup --prune=all"
 alias python="python3"
 alias dotfiles='git --git-dir=/Users/gjonhajdari/.dotfiles --work-tree=/Users/gjonhajdari'
+alias glo='git --no-pager log --oneline --decorate'
+alias glol='git --no-pager log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
+alias vim="nvim"
 
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
@@ -160,16 +168,11 @@ bindkey "^[[B" history-search-forward
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Starship prompt
-# eval "$(starship init zsh)"
-
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-zstyle ':vcs_info:git:*' formats '%b '
-
-setopt PROMPT_SUBST
-PROMPT='%F{magenta}chon%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f%F{yellow}❱%f '
+# autoload -Uz vcs_info
+# precmd() { vcs_info }
+# zstyle ':vcs_info:git:*' formats '%b '
+# setopt PROMPT_SUBST
+# PROMPT='%F{magenta}chon%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f%F{yellow}❱%f '
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -180,3 +183,33 @@ set_nvmrc() {
   echo $(nvm current) > .nvmrc
   echo "Created .nvmrc with Node version $(nvm current)"
 }
+
+# Set local git config
+function gitlocal() {
+  if [[ "$1" == "work" ]]; then
+    git config --local user.name "Gjon Hajdari"
+    git config --local user.email "gjon@kutia.net"
+    git config --local user.signingkey "EF8FAC0622D8585DB57F7EAA7B72B8852BAD6209"
+    echo "Switched to WORK Git profile."
+  elif [[ "$1" == "personal" ]]; then
+    git config --local user.name "Gjon Hajdari"
+    git config --local user.email "gjon.hajdari@student.uni-pr.edu"
+    git config --local user.signingkey "8A3857EDD5B2319074B8AE5038265B7F467A964C"
+    echo "Switched to PERSONAL Git profile."
+  else
+    echo "Usage: gitlocal [work|personal]"
+  fi
+}
+
+export GPG_TTY=$(tty)
+export PATH="$HOME/.pgenv/bin:$HOME/.pgenv/pgsql/bin:$PATH"
+export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig"
+export LDFLAGS="-L$(brew --prefix icu4c)/lib"
+export CPPFLAGS="-I$(brew --prefix icu4c)/include"
+
+export PATH=$PATH:$HOME/go/bin
+
+
+# Starship prompt
+eval "$(starship init zsh)"
+
