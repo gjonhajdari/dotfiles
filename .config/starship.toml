@@ -1,146 +1,54 @@
-# $os ❯ $directory $git_branch$python$java$nodejs$fill$cmd_duration$time
+#
+# prezto - mimic the default prezto prompt (sorin)
+#
 
 add_newline = false
 
-format = """$username $directory $git_branch$fill$cmd_duration$time
-$character
-"""
+# A minimal left prompt
+format = """$python$directory$git_branch$character"""
 
-[fill]
-symbol = ' '
+# move the rest of the prompt to the right
+right_format = """$status$git_status"""
 
-[time]
-disabled = false
-style = "white regular"
-format = "[$time]($style) "
-time_format = '%R'
-
-[cmd_duration]
-format = "took [$duration](red bold) / "
-min_time = 100
-
-[os]
-format = "[$symbol]($style)"
-style = "fg:#ab8cf5"
-disabled = false
-
-[os.symbols]
-Macos = ""
+[character]
+success_symbol = "[❯](red)[❯](yellow)[❯](green)"
+error_symbol = "[❯](red)[❯](red)[❯](red)"
+vicmd_symbol = "[❮](green)[❮](yellow)[❮](red)"
 
 [git_branch]
-style = 'red bold'
-format = "[$symbol$branch(:$remote_branch)]($style) "
-truncation_length = 4
-truncation_symbol = ''
-
-[username]
-style_user = "fg:#ab8cf5 bold"
-style_root = "red bold"
-format = '[chon]($style)'
-show_always = true
-
-[directory]
-read_only = " "
-style = 'cyan bold italic'
-format = '[$path]($style)'
-truncate_to_repo = false
-
-# [package]
-# symbol = ""
-# format = 'via [$symbol $version](208 bold)'
-
-# Replace the '❯' symbol in the prompt with '➜'
-[character]
-success_symbol = "[❱](purple)"
-error_symbol = "[❱](red)"
-vicmd_symbol = "[❰](cyan)"
+format = '[git:]($style)\([$branch](red)\) '
+style = 'bold green'
 
 [python]
-symbol = " "
-format = 'via [${symbol}${version}]($style)'
-style = "bold yellow"
-python_binary = 'python3'
+format = '[(\($virtualenv\) )]($style)'
+style = 'white'
 
-[java]
-symbol = " "
-format = 'via [${symbol}${version}]($style)'
-style = "bold red"
+[git_status]
+format = '$all_status$ahead_behind '
+ahead = '[⬆](bold purple) '
+behind = '[⬇](bold purple) '
+staged = '[✚](green) '
+deleted = '[✖](red) '
+renamed = '[➜](purple) '
+stashed = '[✭](cyan) '
+untracked = '[◼](white) '
+modified = '[✱](blue) '
+conflicted = '[═](yellow) '
+diverged = '⇕ '
+up_to_date = ''
 
-[nodejs]
-symbol = " "
-format = 'via [${symbol}${version}]($style)'
-style = "bold green"
+[directory]
+style = "blue"
+truncation_length = 1
+truncation_symbol = ""
+fish_style_pwd_dir_length = 1
 
-[c]
-symbol = " "
-format = 'via [${symbol}${version}]($style)'
-style = "bold cyan"
+[cmd_duration]
+format = '[$duration]($style) '
 
-[aws]
-symbol = "  "
+[line_break]
+disabled = true
 
-[buf]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[rlang]
-symbol = "ﳒ "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = " "
-
-[scala]
-symbol = " "
-
-[spack]
-symbol = "🅢 "
-
-[golang]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = "⌘ "
-
-[hg_branch]
-symbol = " "
-
-[hostname]
-ssh_symbol = " "
-
-[julia]
-symbol = " "
-
-[lua]
-symbol = " "
-
-[meson]
-symbol = "喝 "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
+[status]
+disabled = false
+symbol = '✘ '
