@@ -142,7 +142,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # custom aliases
 alias bup="brew update && brew upgrade --greedy"
 alias bcl="brew cleanup --prune=all"
-alias python="python3"
+# alias python="python3"
 alias dotfiles='git --git-dir=/Users/gjonhajdari/.dotfiles --work-tree=/Users/gjonhajdari'
 alias glo='git --no-pager log --oneline --decorate'
 alias glol='git --no-pager log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
@@ -209,6 +209,10 @@ export CPPFLAGS="-I$(brew --prefix icu4c)/include"
 
 export PATH=$PATH:$HOME/go/bin
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 # Starship prompt
 eval "$(starship init zsh)"
