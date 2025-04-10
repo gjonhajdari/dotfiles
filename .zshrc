@@ -147,6 +147,7 @@ alias dotfiles='git --git-dir=/Users/gjonhajdari/.dotfiles --work-tree=/Users/gj
 alias glo='git --no-pager log --oneline --decorate'
 alias glol='git --no-pager log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
 alias vim="nvim"
+alias c="clear"
 
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
@@ -206,7 +207,6 @@ export PATH="$HOME/.pgenv/bin:$HOME/.pgenv/pgsql/bin:$PATH"
 export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig"
 export LDFLAGS="-L$(brew --prefix icu4c)/lib"
 export CPPFLAGS="-I$(brew --prefix icu4c)/include"
-
 export PATH=$PATH:$HOME/go/bin
 
 # pyenv
@@ -216,4 +216,3 @@ eval "$(pyenv init - zsh)"
 
 # Starship prompt
 eval "$(starship init zsh)"
-
